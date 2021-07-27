@@ -519,7 +519,7 @@ void printScreen(){
             lcd.setCursor(0,1);
             lcd.write(uint8_t(0));
             if((savedSetting&0x10)==0x10){
-              lcd.setCursor(15,1);
+              lcd.setCursor(15,0);
               lcd.write(uint8_t(1));
             }
             lcd.setCursor(1,0);
