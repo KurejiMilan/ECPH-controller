@@ -66,6 +66,7 @@ String presetInterface[] = {"Lettuce", "StrawBerry", "Tomato", "aquatic"};
 
 byte arrow[] = {B00000,B00100,B00110,B11111,B11111,B00110,B00100,B00000};
 byte tick[] = {B00000,B00000,B00001,B00010,B10100,B01000,B00000,B00000};
+byte set[] = {B01010,B01010,B01010,B01010,B01010,B01010,B01010,B01010};
 
 // look up table stores the various states of the rotary encoder and related directional output 
 int8_t lookUpTable[16] = {0, 0, 0, 0,1, 0, 0, 0,-1, 0, 0, 0,0, 0, 0, 0};                          
@@ -143,6 +144,7 @@ void setup() {
   
   lcd.createChar(0, arrow);
   lcd.createChar(1, tick);
+  lcd.createChar(2, set);
   lcd.begin(16, 2);
   lcd.noCursor();
   lcd.print("AquaBalancer");
@@ -499,9 +501,16 @@ void printScreen(){
         if(state0Active==0){
           lcd.setCursor(0, 0);
           lcd.print("PH:");
+          lcd.print(measuredPh,1);
+          lcd.setCursor(7,0);
+          lcd.write(uint8_t(2));
           lcd.print(PH,1);
+   
           lcd.setCursor(0, 1);
           lcd.print("EC:");
+          lcd.print(measuredEc,1);
+          lcd.setCursor(7,1);
+          lcd.write(uint8_t(2));
           lcd.print(EC,1);
         }else if(state0Active==1){
           if(cursorPointer<2){
