@@ -140,7 +140,7 @@ void setup() {
   //TCCR2A |= (1<<COM2A1);
   OCR1A=0;
   OCR1B=0;
-  OCR2A-0;
+  OCR2A=0;
   
   lcd.createChar(0, arrow);
   lcd.createChar(1, tick);
