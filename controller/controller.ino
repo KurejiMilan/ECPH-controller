@@ -130,7 +130,7 @@ void setup() {
   Serial.begin(9600);
   sensor.begin();
 
-  DDRB = (1<<DDB0)|(1<<DDB1)|(1<<DDB2);                           //PORT B pin 0 = phup, pin1 =phdown, pin2 = ec 
+  DDRB = (1<<DDB1)|(1<<DDB2)|(1<<DDB3);                           //PORT B pin 1 = phup, pin2 =phdown, pin3 = ec 
   TCCR1B = (1<<WGM12)|(1<<CS11);
   TCCR1A |= (1<<WGM10);
   TCCR2B |= (1<<CS21);
